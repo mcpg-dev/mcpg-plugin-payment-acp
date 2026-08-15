@@ -1,0 +1,14 @@
+schema: mcpg.dev/plugin/v1
+id: dev.mcpg.payment.acp
+name: Agentic Commerce Protocol (ACP)
+license: BUSL-1.1
+description: |
+  Agentic Commerce Protocol support for session-bound commerce
+  flows. Negotiates a payment session at request time and records
+  settlement state across the tool chain.
+class: tool_gate
+runtime: native-cdylib-v1
+protocol_version: "1.0"
+required_capabilities:
+  # Merchant API calls for checkout + completion.
+  - network_outbound
