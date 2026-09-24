@@ -1,6 +1,6 @@
 [package]
 name = "mcpg-plugin-payment-acp"
-version = "0.1.0-alpha.31"
+version = "0.1.0-alpha.37"
 license = "BUSL-1.1"
 edition = "2024"
 description = "Agentic Commerce Protocol (ACP) plugin for MCPG gateway"
@@ -9,8 +9,8 @@ description = "Agentic Commerce Protocol (ACP) plugin for MCPG gateway"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-mcpg-plugin-protocol = { git = "https://github.com/mcpg-dev/mcpg-plugin-protocol", tag = "v0.1.0-beta.29", version = "=0.1.0-beta.29" }
-mcpg-plugin-sdk = { git = "https://github.com/mcpg-dev/mcpg-plugin-sdk", tag = "v0.1.0-beta.30", version = "=0.1.0-beta.30" }
+mcpg-plugin-protocol = { git = "https://github.com/mcpg-dev/mcpg-plugin-protocol", tag = "v0.1.0-beta.35", version = "=0.1.0-beta.35" }
+mcpg-plugin-sdk = { git = "https://github.com/mcpg-dev/mcpg-plugin-sdk", tag = "v0.1.0-beta.36", version = "=0.1.0-beta.36" }
 anyhow = "1.0"
 # Kept for the dual-path async ToolGatePlugin impl
 # (PaymentAware bound).
@@ -18,7 +18,7 @@ async-trait = "0.1"
 dashmap = "6"
 # `blocking` feature: ACP merchant API calls go through
 # reqwest::blocking from the cdylib path.
-reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "blocking"] }
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "blocking"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 metrics = "0.24"
