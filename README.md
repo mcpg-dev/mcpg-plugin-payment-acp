@@ -120,8 +120,11 @@ own `order` object; when it is absent the gate emits a bare session reference
 rather than inventing a success receipt.
 
 **Sessions are owned.** Each session is stamped with an ownership key derived
-from the caller's subject and issuer, falling back to the MCP session id for
-anonymous callers. A caller presenting someone else's session id is refused with
+from the caller's subject and issuer. A checkout spans requests, so it needs a
+caller that keeps its identity from one request to the next: an anonymous HTTP
+caller gets a new gateway session on every request and is refused with HTTP 401
+(JSON-RPC code `-33055`) before the merchant is called. Over stdio the process
+session owns the checkouts it opens. A caller presenting someone else's session id is refused with
 a "not found" shaped denial, so session existence is not leaked to a non-owner.
 
 **Responses from private addresses are refused.** Every merchant response passes
